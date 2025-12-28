@@ -5,7 +5,6 @@ Simple, modular, powerful, and easily configurable.
 
 This is one of those documents you can finish reading with your coffee and understand everything about it.
 
-
 This ```module_manager``` is pretty basic to use. It sits between the main application module(app.py, \_\_init\_\_.py,  etc) and the rest of the programs' modules. The ```registry``` component of this ```module_manager``` sits seemingly isolated at the end, however, it is in my opinion the most powerful feature of this extremely basic system. 
 
 If you have the same name function in multiple modules that you use with this, it will run into issues. As it sits, it uses one dictionary to store functions. That means if there are 2 functions that do different things, in different modules, with the same names, the second one would overwrite the first one. That's how duplicate key entries work, and that's how this one dictionary system works. Anyone is welcome to fork this. I'll do it myself in a few weeks, I just needed to launch this for a portfolio project.
@@ -31,7 +30,8 @@ classDef whiteClass fill:#ffffff,stroke:#333,stroke-width:2px;
 ---
 ## Module Manager
 
->**The ```module_manager``` is initialized by your main application ( app.py, \_\_init\_\_.py, etc ). Basically wherever your apps main entry point is.**
+> [!IMPORTANT]
+> The ```module_manager``` is initialized by your main application ( app.py, \_\_init\_\_.py, etc ). Basically wherever your apps main entry point is.
 
 Let's say I have 3 modules I want to import functions from: module_A.py, module_B.py, and module_C.py. Those module names get input into the ```modlist```, in quotes, without the extension(.py), and passed into the ```import_modlist()``` function as a **list**.
 
@@ -104,14 +104,23 @@ def test_02(input) --> None:
 register_func(test_01, test_02)
 ```
 
-
 Now, also make sure that ```register_func()``` is called **BELOW** all of your defined shared functions, otherwise, you're passing ```None``` type values. The *args in the function just means
 that it takes any number of positional arguments. In this case, a tuple. You can add as many functions as you want, comma separated.
 
+> [!WARNING] 
+> When adding functions as arguments to ```register_func()```'s parameters, **DO NOT** add the parenthesis.
+
+This is good:
+```
+register_func(test_01, test_02)
+```
+This is bad:
+```
+register_func(test_01(), test_02())
+```
 ---
 ## Calling Functions
 Calling functions is even easier. 
-
 
 ---
 ## The Registry
