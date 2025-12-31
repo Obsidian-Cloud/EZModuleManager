@@ -1,7 +1,7 @@
 # EZ<sub>ini</sub> Module Manager
 An **_event-driven_** way to decouple your imports and function calls.  
 
-Simple, modular, powerful, and easily configurable.  
+Simple, modular, and powerful.  
 
 Truly Plug-n-Play.
 
@@ -151,7 +151,7 @@ This same exact concept would apply to ```module_B.py```.
 ```module_C.py``` will be dealt with in the next section '**Calling Functions**'.  
 
 Now, also make sure that ```register_func()``` is called **BELOW** all of your defined shared functions like the above example, otherwise, you're passing ```None``` type values because ```register_func()``` wont know your defined functions exist. The *args in ```register_func(*args)``` just means
-that it takes any number of positional arguments. In this case, a tuple. You can add as many functions as you want, comma separated.
+that it takes any number of positional arguments. You can add as many functions as you want, comma separated.
 
 > [!WARNING] 
 > When adding functions as arguments to ```register_func()```'s parameters, **DO NOT** add the parenthesis.
@@ -165,7 +165,7 @@ register_func(test_01, test_02)
 register_func(test_01(), test_02())
 ```
 ---
-## Calling Functions
+## 3. Calling Functions
 This is where the versatility comes into play. You have complete access to these functions without any circular dependencies occuring. I will show you multiple ways to use this functionality.
 
 Refering to the above example of importing, defining, and registering functions as seen in `module_A.py`, we can use ```module_C.py``` to play with the `test_01` and `test_02` functions. You can use this same exact syntax inside `module_A` and `module_B` to use eachothers functions without conflict.
@@ -183,14 +183,13 @@ from registry import call_func
 # store the function call from module_A.py for later use
 x = call_func('test_01')
 
-# then call the function directly using  literal (), since just referencing 'x' is the location of a memory address, not the actual function.
+# then call the function directly using  literal (), since just referencing 'x' is the location of a memory address,
+# not the actual function.
 x()
 
 # the result
 > hello, world.
 ```
-> [!IMPORTANT]
-> When using `call_func()`, be sure to always call your function using quotes. If you read above, you might remember that this `registry` is using a dictionary. And at this point, you might have caught on that the functions are stored using their name as their own key.
 
 <sub>Value Passing & Returning Function Call</sub>
 
@@ -211,6 +210,10 @@ print(y('Hello, World.', 'Goodbye, World.'))
 > Hello, World. Goodbye, World.
 > True
 ```
+
+> [!IMPORTANT]
+> When using `call_func()`, be sure to always call your function using quotes. If you read above, you might remember that this `registry` is using a dictionary. And at this point, you might have caught on that the functions are stored using their name as their own key.
+
 
 ### Calling the function directly :
 
@@ -266,7 +269,7 @@ call_func(func_name: str, call=False, *args)
 
 | Libraries | |
 | :--- | ---------: |
-| importlib ( import_module() )  | [Python Docs]()  |
+| importlib.import_module()  | [Python Docs]()  |
 
 | Concepts | |
 | :--- | ---: |
