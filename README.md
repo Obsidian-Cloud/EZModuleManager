@@ -44,7 +44,7 @@ Let's say we have 3 modules. We'll call 2 of these modules that we want to expor
 
 There are 2 ways to gain access to the ```import_modlist()``` function, of which are syntactically different ways of importing packages and functions in python. There are slight pros and cons to both import methods, and you will be shown both. This information is found under [Modules](https://docs.python.org/3/tutorial/modules.html#modules) in the python docs.
 
-#### Method 1 : Import the `import_modlist` function explicitly : 
+#### Method 1 : Import the `import_modlist` function explicitly
 ```python
 # main.py / app.py / whatever you use for entry
 
@@ -61,7 +61,7 @@ module_names = ['module_A', 'module_B', 'module_C']
 # pass your module names to the Module Manager
 import_modlist(module_names)
 ```
-#### Method 2 : Import the `module_manager` module :
+#### Method 2 : Import the `module_manager` module
  ```python
 # main.py / app.py / whatever you use for entry
 
@@ -83,7 +83,7 @@ modlist = [
 # notice the use of the actual module_manager to get access to the import_modlist() function
 module_manager.import_modlist(modlist)
  ```
-#### You could even just skip the modlist assignment altogether ( this is preferred ) :
+#### Skip the modlist assignment altogether ( preferred )
 ```python
 # main.py / app.py / whatever you use for entry
 
@@ -110,7 +110,7 @@ in an event-driven manner.
 Just make sure that you call `import_modlist` before your routes fire up. It needs to be initialized before your app actually starts functioning. Otherwise, functions get called, functions aren't registered, no keys, no values, no fun.
 
 ---
-## 2. Registering your functions using the Registry
+## 2. Registering your functions with the Registry
 
 Now that the ```module_manager``` has the names of your modules ( ```module_A```, ```module_B```, ```module_C``` ), we need to register the functions from ```module_A.py``` and ```module_B.py``` with the ```registry``` using `register_func`. It's easier than it sounds, trust me.
 
@@ -170,7 +170,7 @@ This is where the versatility comes into play. You have complete access to these
 
 Refering to the above example of importing, defining, and registering functions as seen in `module_A.py`, we can use ```module_C.py``` to play with the `test_01` and `test_02` functions. You can use this same exact syntax inside `module_A` and `module_B` to use eachothers functions without conflict.
 
-### Storing the function for later use :
+### Storing the function for later use
 
 <sub>Void Function Call - does not accept arguments or return a value</sub>
 
@@ -215,7 +215,7 @@ print(y('Hello, World.', 'Goodbye, World.'))
 > When using `call_func()`, be sure to always call your function using quotes. If you read above, you might remember that this `registry` is using a dictionary. And at this point, you might have caught on that the functions are stored using their name as their own key.
 
 
-### Calling the function directly :
+### Calling the function directly
 
 <sub>Void Function Call - does not accept arguments or return a value</sub>
 
