@@ -93,7 +93,7 @@ from ezmodulemanager import module_manager
 
 ...
 # Initialize a list of module names without `.py, etc..` suffix.
-modlist = ['module_A', 'module_B', 'module_C']
+modlist = ['module_A', 'module_B', 'module_C', 'module_D']
  
 # Pass module names to the `module_manager`.
 module_manager.import_modlist(modlist)
@@ -108,7 +108,7 @@ from ezmodulemanager.module_manager import import_modlist
 
 ...
 
-modlist = ['module_A', 'module_B', 'module_C']
+modlist = ['module_A', 'module_B', 'module_C', 'module_D']
 
 import_modlist(modlist)
 ```
@@ -126,7 +126,7 @@ module_manager.import_modlist([
     'module_A',
     'module_B',
     'module_C',
-    'module_D
+    'module_D'
 ])
 ```
 > [!IMPORTANT]
