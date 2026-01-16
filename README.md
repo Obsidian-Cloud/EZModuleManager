@@ -54,7 +54,7 @@ classDef orangeClass fill:#ffb870,stroke:#333,stroke-width:2px;
 classDef whiteClass fill:#ffffff,stroke:#333,stroke-width:2px;
 ```
 ---  
-# Quick Start (Gated Execution):
+# Quick Start Guide (Gated Execution)
 
 ### main.py
 ```python
@@ -76,7 +76,7 @@ main = get_obj('module_B', 'main')
 main()
 ```
 ---
-### module_A.py
+### module_A
 ```python
 # module_A.py
 # Need to import these two functions
@@ -104,7 +104,7 @@ knight = KnightsOfNi('shrubbery').give_offering('shrubbery')
 register_obj(knight, 'knight_of_ni', __file__)
 ```
 ---
-### module_B.py
+### module_B
 ```python
 # module_B.py
 from ezmodulemanager.registry import get_obj, mmreg
@@ -155,7 +155,7 @@ can be found under
 [**Modules**](https://docs.python.org/3/tutorial/modules.html#modules) 
 in the python docs.
 
-#### Method 1 - Import the `module_manager` module :
+#### Method 1 - Import the `module_manager` module
  ```python
 # main.py / app.py / etc
 
@@ -170,7 +170,7 @@ modlist = ['module_A', 'module_B', 'module_C', 'module_D']
 # Pass module names to the `module_manager`.
 module_manager.import_modlist(modlist)
  ```
-#### Method 2 - Import [import_modlist()](#import_modlist) explicitly :
+#### Method 2 - Import [import_modlist()](#import_modlist) explicitly
 ```python
 # main.py / app.py / etc
 
@@ -184,7 +184,7 @@ modlist = ['module_A', 'module_B', 'module_C', 'module_D']
 
 import_modlist(modlist)
 ```
-#### Preferred Method - Skip the modlist assignment altogether :
+#### Preferred Method - Skip the modlist assignment altogether
 ```python
 # main.py / app.py / etc
 
@@ -323,7 +323,7 @@ to all objects we just registered in `module_A`: **`KnightsOfNi()`**,
 > Pretty basic.
 
 
-### Parameterless Functions:
+### Parameterless Functions
 
 ```python
 # module_B.py
@@ -346,7 +346,7 @@ get_obj('module_A', 'king_arthur')()
 ```
 
 
-### Parameterized Functions:
+### Parameterized Functions
 ```python
 # module_B.py
 
@@ -368,7 +368,7 @@ get_obj('module_A', 'lancelot')('shrubbery')
 ```
 
 
-### Classes: 
+### Classes
 
 
 ```python
@@ -419,8 +419,9 @@ Hopefully this shows you the power of this system so far.  Next up,
 storing these instances with variables to then be maniuplated inside 
 other modules.
 
+---
 
-### Register Variables with `register_obj()`:
+### Register Variables with `register_obj()`
 (constants, globals, whatever you want....thats the point)
 
 ```python
@@ -451,7 +452,7 @@ register_obj(knight_of_ni, 'knight_of_ni', __file__)
     """
 ```
 Then, if we wanted to access this class instance from another module, 
-say `module_C`, we can.
+say `module_C`, we can:
 
 ```python
 # module_C.py
@@ -513,7 +514,7 @@ component. Let's move onto a new module, `module_D`, and call that
 method we just 'registered'. We can do this 2 ways.  
 
 
-#### Store the method object then call:
+#### Store the method object then call
 
 ```python
 # module_D.py
@@ -527,7 +528,7 @@ give_offering('brick')
 > Your brick is not accepted as an offering..
 ```
 
-#### Call the method object directly:
+#### Call the method object directly
 
 ```python
 # module_D.py
