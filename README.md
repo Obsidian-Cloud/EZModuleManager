@@ -183,7 +183,7 @@ would look like:
 ```python
 # module_A.py
 
-# Import registration decorator
+# Import registration decorator.
 from ezmodulemanager.registry import mmreg
 
 # The decorator `@mmreg` gets used with any class, method, or function
